@@ -1,0 +1,52 @@
+---
+title: "Topic"
+subtitle: "FSH 507 Fall 2019"
+author: "Your Name"
+date: " `r Sys.Date()`"
+output:
+  powerpoint_presentation: default
+  ioslides_presentation: default
+  html_document: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(gapminder)
+```
+
+# R Markdown
+
+## Getting Started
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown for presentations see <https://bookdown.org/yihui/rmarkdown/presentations.html>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+pressure %>% 
+  ggplot(aes(temperature, pressure)) + 
+  geom_point()
+
+```
+
+
+# Materials
+
+
+
