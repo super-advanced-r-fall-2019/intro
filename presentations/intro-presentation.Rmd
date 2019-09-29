@@ -33,6 +33,8 @@ class: center, inverse, middle
   
 - If you're not teaching, find a section to help with
 
+- Learning & community, not expertise!
+
 .center[*Keep an open mind*]
 ]
 .pull-right[
