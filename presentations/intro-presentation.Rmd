@@ -23,6 +23,7 @@ class: center, inverse, middle
 
 ## Course Structure
 
+.pull-left[
 - ~ [1 hour lecture by volunteers](https://docs.google.com/document/d/1S63IHjNBk8e7St6XcyqhVu98qpuRTUx3DHYqzWKYDys/edit)
 
 - ~ 2 hour hands-on activities
@@ -32,11 +33,12 @@ class: center, inverse, middle
   
 - If you're not teaching, find a section to help with
 
-
-<br>
-<br>
---
 .center[*Keep an open mind*]
+]
+.pull-right[
+
+![](`r here::here("imgs","google-error.jpg")`)
+]
 
 ---
 
@@ -46,7 +48,7 @@ class: center, inverse, middle
 
 ---
 
-# Accesing Lecture Materials
+# Accessing Lecture Materials
 
 We're going to use GitHub for this class
   - Apologies to team BitBucket
@@ -69,13 +71,13 @@ Perfectly fine way to get materials
 
 ---
 
-# Accesing Lecture Materials
+# Accessing Lecture Materials
 
  Presentations will generally be written in R Markdown. 
  
  You can view the raw .Rmd files in the "presentations" folder
  
- Different lecturures may have difference presentation formats, but if html, just open the .html file of the presentation with your favorite browser!
+ Different presenters may have difference presentation formats, but if html, just open the .html file of the presentation with your favorite browser!
 
 ---
 
@@ -87,7 +89,7 @@ class: center, inverse, middle
 
 
 class: center, inverse, middle
-# Science is all about reproducibiility! 
+# Science is all about reproducibility! 
 # Why should it stop at our code?
 
 
@@ -139,6 +141,7 @@ class: center, inverse, middle
 
 * CaMel or snake_case
   - But seriously, snake_case
+  - See [tidyverse style guide](https://style.tidyverse.org/)
 
 * Your lucky coding socks
 
@@ -190,7 +193,6 @@ Uses heuristics involving files like .Rproj, .git, .here to find project root
 
 ```{r}
 library(here)
-
 ```
 
 Builds paths from there
@@ -199,8 +201,27 @@ Builds paths from there
 here::here("data","my_data.csv")
 ```
 
-
+Works on any platform, and inside R Markdown chunks!
 
 ---
 
+# On with the Show
 
+.pull-left[
+
+.middle[Use this class as an opportunity to learn new tools and improve your overall coding practices. 
+
+Thanks for joining!
+]
+
+]
+.pull-right[
+
+```{r, echo=FALSE, out.height="400px"}
+knitr::include_graphics( here::here("imgs","good_code.png"))
+```
+
+]
+
+
+---
