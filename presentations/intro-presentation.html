@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Super-Advanced R Fall 2019</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dan Ovando" />
+    <meta name="date" content="2019-09-29" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Super-Advanced R Fall 2019
+## What are we in for?
+### Dan Ovando
+### University of Washington
+### 2019-09-29
+
+---
+
+
+class: center, inverse, middle
+# The point of all of this is to
+# make your life *easier*
+
+
+---
+
+
+## Course Structure
+
+- ~ [1 hour lecture by volunteers](https://docs.google.com/document/d/1S63IHjNBk8e7St6XcyqhVu98qpuRTUx3DHYqzWKYDys/edit)
+
+- ~ 2 hour hands-on activities
+
+- Come to class prepared!
+  - We'll send out materials beforehand
+  
+- If you're not teaching, find a section to help with
+
+
+&lt;br&gt;
+&lt;br&gt;
+--
+.center[*Keep an open mind*]
+
+---
+
+class: center, inverse, middle
+# Getting the Materials
+
+
+---
+
+# Accesing Lecture Materials
+
+We're going to use GitHub for this class
+  - Apologies to team BitBucket
+  - Principles helpful either way!
+  - One repo per lecture
+  - All materials needed to recreate materials in repo
+
+"Best" way to get materials
+  - Create class folder on your machine
+  - Fork repo to your github account
+  - Clone to the folder on your computer
+  - Rebase from master to get any changes
+  - Lee Qi will make this all clear
+
+Perfectly fine way to get materials
+  - Create class folder on your machine
+  - Go to repo
+  - Click "Clone or download"
+  - Download zip file to class folder
+
+---
+
+# Accesing Lecture Materials
+
+ Presentations will generally be written in R Markdown. 
+ 
+ You can view the raw .Rmd files in the "presentations" folder
+ 
+ Different lecturures may have difference presentation formats, but if html, just open the .html file of the presentation with your favorite browser!
+
+---
+
+class: center, inverse, middle
+
+# Project-Oriented Workflows
+
+---
+
+
+class: center, inverse, middle
+# Science is all about reproducibiility! 
+# Why should it stop at our code?
+
+
+---
+
+
+# Project-Oriented Workflows
+
+&gt;This convention guarantees that the project can be moved around on your computer or onto other computers and will still “just work” &lt;footer&gt;--- Jenny Bryan&lt;/footer&gt;
+
+- All files needed to run your analysis in one folder
+  - Nested subfolders as needed
+  - **Does not have to be RStudio**
+
+- All analysis written assuming
+  - Fresh state
+  - Working directory set to project directory
+
+
+
+---
+
+# Project-Oriented Workflows
+
+![https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510](/Users/danovan/teaching/fsh_507-s-a-r_fall-2019/intro/imgs/good-enough.png)&lt;footer&gt;--- Wilson *et al.* 2017&lt;/footer&gt;
+
+
+---
+
+
+
+# My `setwd` Rant
+
+&lt;!-- ![](../imgs/jbburn.png) --&gt;
+![](/Users/danovan/teaching/fsh_507-s-a-r_fall-2019/intro/imgs/jbburn.png)
+&lt;footer&gt;--- Jenny Bryan&lt;/footer&gt;
+
+---
+
+
+# What's wrong with `setwd`?
+
+.pull-left[
+### Workflow
+
+*Personal decisions*
+
+* Choice of IDE
+
+* CaMel or snake_case
+  - But seriously, snake_case
+
+* Your lucky coding socks
+
+* **Where the code lives**
+]
+.pull-right[
+
+### Product
+
+*What the analysis needs*
+
+* The data
+
+* Packages
+
+* Package versions
+
+* Custom functions
+
+* Scripts  to tie it all together
+
+]
+
+---
+
+## Alternatives to `setwd`
+
+Using RStudio is a simple way around this
+  
+  - Create .Rproj file in the root directory of your project
+  
+Alternatively
+ 
+ - Often just open a file in the project directory with R GUI/Atom/Whatever
+  
+  - use `cd` / `setwd` from the command line/console (not in your script) when you open your analysis
+
+
+**It's the user's, not the code's, responsibility to make sure the working directory is in the right place**
+
+
+---
+
+## Use the `here` package
+
+The [`here`](https://here.r-lib.org/) package helps create platform-proof paths
+
+Uses heuristics involving files like .Rproj, .git, .here to find project root
+
+
+```r
+library(here)
+```
+
+```
+## here() starts at /Users/danovan/teaching/fsh_507-s-a-r_fall-2019/intro
+```
+
+Builds paths from there
+
+
+```r
+here::here("data","my_data.csv")
+```
+
+```
+## [1] "/Users/danovan/teaching/fsh_507-s-a-r_fall-2019/intro/data/my_data.csv"
+```
+
+
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

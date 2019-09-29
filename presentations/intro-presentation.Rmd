@@ -1,0 +1,206 @@
+---
+title: "Super-Advanced R Fall 2019"
+subtitle: "What are we in for?"
+author: "Dan Ovando"
+institute: "University of Washington"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+class: center, inverse, middle
+# The point of all of this is to
+# make your life *easier*
+
+
+---
+
+
+## Course Structure
+
+- ~ [1 hour lecture by volunteers](https://docs.google.com/document/d/1S63IHjNBk8e7St6XcyqhVu98qpuRTUx3DHYqzWKYDys/edit)
+
+- ~ 2 hour hands-on activities
+
+- Come to class prepared!
+  - We'll send out materials beforehand
+  
+- If you're not teaching, find a section to help with
+
+
+<br>
+<br>
+--
+.center[*Keep an open mind*]
+
+---
+
+class: center, inverse, middle
+# Getting the Materials
+
+
+---
+
+# Accesing Lecture Materials
+
+We're going to use GitHub for this class
+  - Apologies to team BitBucket
+  - Principles helpful either way!
+  - One repo per lecture
+  - All materials needed to recreate materials in repo
+
+"Best" way to get materials
+  - Create class folder on your machine
+  - Fork repo to your github account
+  - Clone to the folder on your computer
+  - Rebase from master to get any changes
+  - Lee Qi will make this all clear
+
+Perfectly fine way to get materials
+  - Create class folder on your machine
+  - Go to repo
+  - Click "Clone or download"
+  - Download zip file to class folder
+
+---
+
+# Accesing Lecture Materials
+
+ Presentations will generally be written in R Markdown. 
+ 
+ You can view the raw .Rmd files in the "presentations" folder
+ 
+ Different lecturures may have difference presentation formats, but if html, just open the .html file of the presentation with your favorite browser!
+
+---
+
+class: center, inverse, middle
+
+# Project-Oriented Workflows
+
+---
+
+
+class: center, inverse, middle
+# Science is all about reproducibiility! 
+# Why should it stop at our code?
+
+
+---
+
+
+# Project-Oriented Workflows
+
+>This convention guarantees that the project can be moved around on your computer or onto other computers and will still “just work” `r tufte::quote_footer('--- Jenny Bryan')`
+
+- All files needed to run your analysis in one folder
+  - Nested subfolders as needed
+  - **Does not have to be RStudio**
+
+- All analysis written assuming
+  - Fresh state
+  - Working directory set to project directory
+
+
+
+---
+
+# Project-Oriented Workflows
+
+![https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510](`r here::here("imgs","good-enough.png")`)`r tufte::quote_footer('--- Wilson *et al.* 2017')`
+
+
+---
+
+
+
+# My `setwd` Rant
+
+<!-- ![](../imgs/jbburn.png) -->
+![](`r here::here("imgs","jbburn.png")`)
+`r tufte::quote_footer('--- Jenny Bryan')`
+
+---
+
+
+# What's wrong with `setwd`?
+
+.pull-left[
+### Workflow
+
+*Personal decisions*
+
+* Choice of IDE
+
+* CaMel or snake_case
+  - But seriously, snake_case
+
+* Your lucky coding socks
+
+* **Where the code lives**
+]
+.pull-right[
+
+### Product
+
+*What the analysis needs*
+
+* The data
+
+* Packages
+
+* Package versions
+
+* Custom functions
+
+* Scripts  to tie it all together
+
+]
+
+---
+
+## Alternatives to `setwd`
+
+Using RStudio is a simple way around this
+  
+  - Create .Rproj file in the root directory of your project
+  
+Alternatively
+ 
+ - Often just open a file in the project directory with R GUI/Atom/Whatever
+  
+  - use `cd` / `setwd` from the command line/console (not in your script) when you open your analysis
+
+
+**It's the user's, not the code's, responsibility to make sure the working directory is in the right place**
+
+
+---
+
+## Use the `here` package
+
+The [`here`](https://here.r-lib.org/) package helps create platform-proof paths
+
+Uses heuristics involving files like .Rproj, .git, .here to find project root
+
+```{r}
+library(here)
+
+```
+
+Builds paths from there
+
+```{r}
+here::here("data","my_data.csv")
+```
+
+
+
+---
+
+
