@@ -7,11 +7,11 @@ date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
     lib_dir: libs
+    self_contained: true
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      selfContained: true
 ---
 
 class: center, inverse, middle
