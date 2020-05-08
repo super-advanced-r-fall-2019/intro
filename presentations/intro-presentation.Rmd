@@ -7,7 +7,6 @@ date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    self_contained: true
     nature:
       highlightStyle: github
       highlightLines: true
@@ -46,7 +45,7 @@ Watching how ecodatascience transformed the coding community at UCSB
 ]
 .pull-right[
 
-![](`r here::here("imgs","google-error.jpg")`)
+![](http://www.meh.ro/wp-content/uploads/2017/01/meh.ro12456.jpg)
 ]
 
 ---
@@ -129,8 +128,8 @@ As code becomes our primary tool, need to apply the same reprodicibility rigorou
 ---
 
 # Project-Oriented Workflows
-
-![https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510](`r here::here("imgs","good-enough.png")`)`r tufte::quote_footer('--- Wilson *et al.* 2017')`
+see [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+![https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510](https://github.com/super-advanced-r-fall-2019/intro/raw/master/imgs/good-enough.png)
 
 
 ---
@@ -140,7 +139,7 @@ As code becomes our primary tool, need to apply the same reprodicibility rigorou
 # My `setwd` Rant
 
 <!-- ![](../imgs/jbburn.png) -->
-![](`r here::here("imgs","jbburn.png")`)
+![](https://github.com/super-advanced-r-fall-2019/intro/raw/master/imgs/jbburn.png)
 `r tufte::quote_footer('--- Jenny Bryan')`
 
 ---
@@ -244,8 +243,10 @@ Thanks for joining!
 ]
 .pull-right[
 
+![](https://github.com/super-advanced-r-fall-2019/intro/raw/master/imgs/good_code.png)
+
 ```{r, echo=FALSE, out.height="400px"}
-knitr::include_graphics( here::here("imgs","good_code.png"))
+# knitr::include_graphics("https://github.com/super-advanced-r-fall-2019/intro/raw/master/imgs/good_code.png")
 ```
 
 ]
