@@ -231,6 +231,19 @@ Works on any platform, and inside R Markdown chunks!
 
 ---
 
+# USE VERSION CONTROL
+## In other words, use `git` (and I like github)
+
+You will thank yourself when you break everything right before a deadline and can use git as a magic time machine. 
+
+Also prevents emailing of "project_code_v3 DO edits_09-12-2020-FINAL.R"
+
+We'll cover this in a dedicated lecture, but for any kind of collaborative or solo work, git and github will be your friend
+
+See Lee Qi's intro to git and github [here](https://rawcdn.githack.com/super-advanced-r-fall-2019/git-and-github/b0edfd029e1a4c87c1302386f335148dc2647f6b/presentations/git-and-github.html)
+
+---
+
 # On with the Show
 
 .pull-left[
