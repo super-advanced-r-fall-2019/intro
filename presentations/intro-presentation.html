@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>Super-Advanced R Fall 2019</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dan Ovando" />
-    <meta name="date" content="2019-09-29" />
+    <meta name="date" content="2020-05-08" />
+    <script src="libs/header-attrs-2.1/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -16,7 +17,7 @@ class: center, middle, inverse, title-slide
 ## What are we in for?
 ### Dan Ovando
 ### University of Washington
-### 2019-09-29
+### 2020-05-08
 
 ---
 
@@ -25,7 +26,12 @@ class: center, inverse, middle
 # The point of all of this is to
 # make your life *easier*
 
-
+???
+Became an accidental professional programmer
+Realized needed to learn best practices
+NCEAS scientific programmer position
+Coding often presented in an "eat your veggies" kind of way
+Watching how ecodatascience transformed the coding community at UCSB
 ---
 
 
@@ -40,6 +46,7 @@ class: center, inverse, middle
   - We'll send out materials beforehand
   
 - If you're not teaching, find a section to help with
+  - Present package of the week?
 
 - Learning &amp; community, not expertise!
 
@@ -60,7 +67,7 @@ class: center, inverse, middle
 
 # Accessing Lecture Materials
 
-We're going to use GitHub for this class
+We're going to use GitHub for [this class](https://github.com/super-advanced-r-fall-2019)
   - Apologies to team BitBucket
   - Principles helpful either way!
   - One repo per lecture
@@ -102,7 +109,14 @@ class: center, inverse, middle
 # Science is all about reproducibility! 
 # Why should it stop at our code?
 
+???
+Most of us trained in things like field methods: I've had way more classes in transect methods than coding practices.
 
+Leads to methods that describe the brand of PVC pipe used but depend on a pile of code that will only work on the users computer for the week they submitted the paper, and never again
+
+we put all this work into getting the data, and then drop the ball at the step that turns all that hard work into insight. 
+
+As code becomes our primary tool, need to apply the same reprodicibility rigorous to our code that we're used to applying in our field methods
 ---
 
 
@@ -183,21 +197,32 @@ Using RStudio is a simple way around this
   
   - Create .Rproj file in the root directory of your project
   
-Alternatively
+Alternatively...
  
- - Often just open a file in the project directory with R GUI/Atom/Whatever
+  - Often just open a file in the project directory with R GUI/Atom/Whatever
   
-  - use `cd` / `setwd` from the command line/console (not in your script) when you open your analysis
+
+  - If that fails, use `cd` / `setwd` from the command line/console (not in your script) when you open your analysis
+  
+  - `here` will often do the job for you
+  
+
+Using project-oriented workflow means that once you're in the working directory, everything else should work
 
 
-**It's the user's, not the code's, responsibility to make sure the working directory is in the right place**
+**It's the user's, not the code's, responsibility to make sure the working directory is set correctly** `\(^1\)`
 
+.footnote[
+[1] But do what works best for your workflow
+]
 
 ---
 
 ## Use the `here` package
 
-The [`here`](https://here.r-lib.org/) package helps create platform-proof paths
+The [`here`](https://here.r-lib.org/) package helps create platform-proof paths, and will help `setwd`
+
+
 
 Uses heuristics involving files like .Rproj, .git, .here to find project root
 
@@ -249,7 +274,8 @@ Thanks for joining!
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"selfContained": true
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
@@ -290,6 +316,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -307,17 +359,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {
